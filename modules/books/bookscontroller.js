@@ -70,9 +70,9 @@ export const deleteBookById = async (req, res) => {
   try {
     const book = await Book.findByIdAndDelete(req.params.id)
     if (!book) {
-      return res.status(404).send()
+      return res.status(404)send("book is not found")
     }
-    res.status(200).send(book)
+    res.status(200).sendsend("book is deleted")
   } catch (e) {
     res.status(500).send(e)
   }
