@@ -66,9 +66,9 @@ export const deleteAuthorById = async (req, res) => {
   try {
     const author = await Author.findByIdAndDelete(req.params.id)
     if (!author) {
-      return res.status(404).send()
+      return res.status(404).send("author is not found")
     }
-    res.status(200).send(author)
+    res.status(200).send("author is deleted")
   } catch (e) {
     res.status(500).send(e)
   }
